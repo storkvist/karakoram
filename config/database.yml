@@ -1,6 +1,8 @@
 default: &default
   adapter: mysql2
   database: karakoram
+  pool: 5
+  username: root
 
 development:
   <<: *default

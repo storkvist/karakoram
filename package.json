@@ -1,5 +1,7 @@
 {
   "name": "Karakoram",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bulma": "^0.5.3"
+  }
 }
