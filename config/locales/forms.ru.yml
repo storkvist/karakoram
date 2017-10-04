@@ -3,3 +3,4 @@ ru:
     submit:
       issue:
         create: 'Добавить задачу'
+        created_notification: 'Задача добавлена'

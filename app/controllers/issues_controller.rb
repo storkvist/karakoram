@@ -7,11 +7,13 @@ class IssuesController < ApplicationController
 
   def create
     if @issue.save
-      redirect_to @issue
+      redirect_to @issue, notice: 'Задача добавлена'
     else
       render :new
     end
   end
+
+  def show; end
 
   private
 

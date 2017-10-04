@@ -1,1 +1,7 @@
 <%= link_to 'Добавить задачу', new_issue_path %>
+
+<% @issues.each do |issue| %>
+  <p>
+    <%= link_to issue.description, issue %>
+  </p>
+<% end %>

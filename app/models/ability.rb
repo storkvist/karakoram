@@ -4,6 +4,9 @@ class Ability
   def initialize(_)
     can :create, Issue
 
+    # Должно быть доступно только для администраторов.
+    can :manage, :all
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

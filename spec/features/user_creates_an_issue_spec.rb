@@ -2,13 +2,15 @@ require 'rails_helper'
 
 # RSpec.feature 'User creates an issue', type: :feature do
 RSpec.feature 'Пользователь создаёт задачу', type: :feature do
-  scenario 'he sees added issue on the page' do
+  scenario 'видит описание созданную задачу' do
     visit new_issue_path
 
-    fill_in 'Description', with: 'Description of issue'
-    click_button 'Создать задачу'
+    fill_in I18n.t('activerecord.attributes.issue.description'),
+            with: 'Description of issue'
+    click_button I18n.t('helpers.submit.issue.create')
 
-    expect(page).to have_text('Задача добавлена')
+    expect(page)
+      .to have_text(I18n.t('helpers.submit.issue.created_notification'))
+    expect(page).to have_text('Description of issue')
   end
-  pending "add some scenarios (or delete) #{__FILE__}"
 end
