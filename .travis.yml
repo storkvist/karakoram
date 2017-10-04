@@ -4,11 +4,6 @@ env:
 language: ruby
 rvm:
   - 2.4
-cache:
-  bundler: true
-  directories:
-    - node_modules
-  yarn: true
 services:
   - mysql
 before_install:
@@ -17,6 +12,8 @@ before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
+install:
+  - yarn
 script:
   - bundle exec rspec
 after_script:
