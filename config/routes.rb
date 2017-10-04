@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :issues, only: %i[index]
+  devise_for :users
+
+  resources :issues, only: %i[index new create]
 
   root to: 'issues#index'
 end

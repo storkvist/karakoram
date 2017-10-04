@@ -1,0 +1,5 @@
+ru:
+  helpers:
+    submit:
+      issue:
+        create: 'Добавить задачу'

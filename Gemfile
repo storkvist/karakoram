@@ -5,10 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'cancancan'
 gem 'coffee-rails', '~> 4.2'
+gem 'devise'
 gem 'mysql2'
 gem 'rails', '~> 5.1.4'
+gem 'rails-i18n'
 gem 'sass-rails', '~> 5.0'
+gem 'simple_form'
 gem 'therubyracer', platforms: :ruby
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
@@ -21,6 +25,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'i18n-debug'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'puma', '~> 3.7'
   gem 'spring'
