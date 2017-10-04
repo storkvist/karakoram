@@ -1,9 +1,7 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
-    user ||= User.new
-
+  def initialize(_)
     can :create, Issue
 
     # Define abilities for the passed in user here. For example:
