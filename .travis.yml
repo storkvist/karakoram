@@ -4,6 +4,10 @@ env:
 language: ruby
 rvm:
   - 2.4
+services:
+  - mysql
+before_install:
+  - mysql -e 'CREATE DATABASE karakoram_test;'
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
