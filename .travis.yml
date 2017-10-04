@@ -13,6 +13,7 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 install:
+  - bundle install --jobs=3 --retry=3
   - yarn
 script:
   - bundle exec rspec
