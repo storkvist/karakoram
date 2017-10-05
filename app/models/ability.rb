@@ -1,11 +1,15 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(_)
-    can :create, Issue
+  def initialize(user)
+    user ||= User.new
 
-    # Должно быть доступно только для администраторов.
-    can :manage, :all
+    if user.has_role?(:admin)
+      can :manage, :all
+    else
+      can :create, Issue
+      can :read, Issue
+    end
 
     # Define abilities for the passed in user here. For example:
     #

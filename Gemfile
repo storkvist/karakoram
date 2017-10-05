@@ -11,6 +11,7 @@ gem 'devise'
 gem 'mysql2'
 gem 'rails', '~> 5.1.4'
 gem 'rails-i18n'
+gem 'rolify'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem 'therubyracer', platforms: :ruby

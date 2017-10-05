@@ -195,6 +195,12 @@ class SimpleForm::Inputs::Base
   end
 end
 
+class SimpleForm::Inputs::StringInput
+  def additional_classes
+    @additional_classes ||= ['input', required_class, readonly_class, disabled_class, error_class].compact
+  end
+end
+
 class SimpleForm::Inputs::TextInput
   def additional_classes
     @additional_classes ||= ['textarea', required_class, readonly_class, disabled_class, error_class].compact

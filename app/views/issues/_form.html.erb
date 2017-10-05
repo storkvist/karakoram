@@ -1,5 +1,6 @@
 <%= simple_form_for(@issue) do |f| %>
   <%= f.association :hostel, prompt: :translate, wrapper: :select %>
+  <%= f.input :room %>
   <%= f.input :description %>
 
   <div class="field is-grouped">

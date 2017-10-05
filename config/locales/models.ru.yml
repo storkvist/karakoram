@@ -4,3 +4,4 @@ ru:
       issue:
         description: 'Описание'
         hostel: 'Общежитие'
+        room: 'Комната'
