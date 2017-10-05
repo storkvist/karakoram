@@ -3,3 +3,4 @@ ru:
     attributes:
       issue:
         description: 'Описание'
+        hostel: 'Общежитие'

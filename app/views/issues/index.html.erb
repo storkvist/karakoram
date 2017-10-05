@@ -2,6 +2,6 @@
 
 <% @issues.each do |issue| %>
   <p>
-    <%= link_to issue.description, issue %>
+    <%= link_to issue.inspect, issue %>
   </p>
 <% end %>

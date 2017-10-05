@@ -62,6 +62,15 @@ SimpleForm.setup do |config|
     b.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
   end
 
+  config.wrappers :select, tag: :div, class: :field,
+                           error_class: 'is-danger' do |b|
+    b.use :label, class: :label
+    b.wrapper tag: :div, class: :control do |c|
+      c.use :input, wrap_with: { tag: :div, class: :select }
+    end
+    b.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
+  end
+
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :field
 
@@ -72,7 +81,7 @@ SimpleForm.setup do |config|
   config.boolean_style = :nested
 
   # Default class for buttons
-  config.button_class = 'btn'
+  config.button_class = 'button is-primary'
 
   # Method used to tidy up errors. Specify any Rails Array method.
   # :first lists the first message for each field.

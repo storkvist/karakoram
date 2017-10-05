@@ -1,4 +1,13 @@
 <%= simple_form_for(@issue) do |f| %>
+  <%= f.association :hostel, prompt: :translate, wrapper: :select %>
   <%= f.input :description %>
-  <%= f.button :submit %>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= f.button :submit %>
+    </div>
+    <div class="control">
+      <%= link_to 'Назад', issues_path, class: 'button is-link' %>
+    </div>
+  </div>
 <% end %>
