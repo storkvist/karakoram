@@ -1,5 +1,5 @@
 class Issue < ApplicationRecord
-  enum status: [new: 1, accepted: 2, closed: 3]
+  enum status: { accepted: 1, reviewed: 2, in_work: 3, closed: 4 }
   has_secure_token
   resourcify
 
@@ -8,4 +8,6 @@ class Issue < ApplicationRecord
   validates_presence_of :room
 
   belongs_to :hostel
+
+  default_scope { order(created_at: :asc) }
 end

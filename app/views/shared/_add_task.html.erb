@@ -1,0 +1,9 @@
+<% if can?(:create, Issue) %>
+  <section class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <%= link_to 'Добавить новую задачу', new_issue_path %>
+      </div>
+    </div>
+  </section>
+<% end %>

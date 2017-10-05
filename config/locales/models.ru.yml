@@ -1,5 +1,11 @@
 ru:
   activerecord:
+    models:
+      issue:
+        one: 'задача'
+        few: 'задачи'
+        many: 'задач'
+        other: 'задачи'
     attributes:
       issue:
         description: 'Описание'

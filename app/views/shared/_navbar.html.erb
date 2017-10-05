@@ -15,7 +15,7 @@
     <div class="navbar-start">
       <% if can?(:index, Issue) %>
         <% active = 'is-active' if request.fullpath.include?('/issue') %>
-        <%= link_to 'Задачи', issues_path,
+        <%= link_to 'Задачи', issues_path(status: [:accepted, :reviewed]),
                     class: "navbar-item #{active}" %>
       <% end %>
     </div>

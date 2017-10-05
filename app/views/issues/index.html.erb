@@ -1,6 +1,6 @@
-<%= link_to 'Добавить задачу', new_issue_path %>
+<%= render 'toolbar' %>
 
-<table>
+<table class="table is-fullwidth is-narrow is-striped">
   <thead>
     <tr>
       <th>
@@ -8,6 +8,9 @@
       </th>
       <th>
         Статус
+      </th>
+      <th>
+        Добавлена
       </th>
       <th>
         Общежитие
@@ -27,7 +30,10 @@
           <%= issue.id %>
         </th>
         <td>
-
+          <%= issue.status_name %>
+        </td>
+        <td>
+          <%= l(issue.created_at) %>
         </td>
         <td>
           <%= issue.hostel %>
@@ -36,7 +42,7 @@
           <%= issue.room %>
         </td>
         <td>
-          <%= link_to issue.description, issue %>
+          <%= link_to issue.description, issue, class: 'has-text-black' %>
         </td>
       </tr>
     <% end %>

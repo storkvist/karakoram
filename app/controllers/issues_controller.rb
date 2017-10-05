@@ -2,7 +2,10 @@ class IssuesController < ApplicationController
   before_action :find_by_token, only: :show
   load_and_authorize_resource
 
-  def index; end
+  def index
+    @issues = @issues.where(status: params[:status]) if params[:status]
+    @issues = IssuesDecorator.decorate(@issues)
+  end
 
   def new; end
 
