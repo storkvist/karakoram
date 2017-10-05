@@ -8,7 +8,7 @@ class Ability
       can :manage, :all
     else
       can :create, Issue
-      can :read, Issue
+      can :show, Issue
     end
 
     # Define abilities for the passed in user here. For example:

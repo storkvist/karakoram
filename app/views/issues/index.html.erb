@@ -1,7 +1,44 @@
 <%= link_to 'Добавить задачу', new_issue_path %>
 
-<% @issues.each do |issue| %>
-  <p>
-    <%= link_to issue.inspect, issue %>
-  </p>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>
+        #
+      </th>
+      <th>
+        Статус
+      </th>
+      <th>
+        Общежитие
+      </th>
+      <th>
+        Комната
+      </th>
+      <th>
+        Задача
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @issues.each do |issue| %>
+      <tr>
+        <th>
+          <%= issue.id %>
+        </th>
+        <td>
+
+        </td>
+        <td>
+          <%= issue.hostel %>
+        </td>
+        <td>
+          <%= issue.room %>
+        </td>
+        <td>
+          <%= link_to issue.description, issue %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

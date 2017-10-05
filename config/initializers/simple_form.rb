@@ -71,6 +71,15 @@ SimpleForm.setup do |config|
     b.use :error, wrap_with: { tag: :p, class: 'help is-danger' }
   end
 
+  config.wrappers :checkbox, tag: :div, class: :field do |b|
+    b.wrapper tag: :div, class: :control do |c|
+      c.wrapper tag: :label, class: :checkbox do |l|
+        l.use :input, class: :checkbox
+        l.use :label_text
+      end
+    end
+  end
+
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :field
 
@@ -78,7 +87,7 @@ SimpleForm.setup do |config|
   # Defaults to :nested for bootstrap config.
   #   inline: input + label
   #   nested: label > input
-  config.boolean_style = :nested
+  config.boolean_style = :inline
 
   # Default class for buttons
   config.button_class = 'button is-primary'
@@ -196,6 +205,12 @@ class SimpleForm::Inputs::Base
 end
 
 class SimpleForm::Inputs::StringInput
+  def additional_classes
+    @additional_classes ||= ['input', required_class, readonly_class, disabled_class, error_class].compact
+  end
+end
+
+class SimpleForm::Inputs::PasswordInput
   def additional_classes
     @additional_classes ||= ['input', required_class, readonly_class, disabled_class, error_class].compact
   end

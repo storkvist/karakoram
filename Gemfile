@@ -8,6 +8,7 @@ end
 gem 'cancancan'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
+gem 'devise-i18n'
 gem 'mysql2'
 gem 'rails', '~> 5.1.4'
 gem 'rails-i18n'

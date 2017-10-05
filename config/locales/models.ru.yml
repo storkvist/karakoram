@@ -5,3 +5,6 @@ ru:
         description: 'Описание'
         hostel: 'Общежитие'
         room: 'Комната'
+      user:
+        email: 'Электронная почта'
+        password: 'Пароль'

@@ -1,0 +1,29 @@
+<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <%= image_tag 'logo.png' %>
+    </a>
+
+    <button class="button navbar-burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <% if can?(:index, Issue) %>
+        <% active = 'is-active' if request.fullpath.include?('/issue') %>
+        <%= link_to 'Задачи', issues_path,
+                    class: "navbar-item #{active}" %>
+      <% end %>
+    </div>
+
+    <div class="navbar-end">
+      <% if user_signed_in? %>
+        <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'navbar-item is-danger' %>
+      <% end %>
+    </div>
+  </div>
+</nav>
