@@ -2,7 +2,13 @@
   <section class="hero is-primary is-bold">
     <div class="hero-body">
       <div class="container">
-        <%= link_to 'Добавить новую задачу', new_issue_path %>
+        <%= link_to new_issue_path do %>
+          <span class="icon">
+            <i class="fa fa-plus"></i>
+          </span>
+
+          Добавить новую задачу
+        <% end %>
       </div>
     </div>
   </section>
