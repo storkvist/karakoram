@@ -1,3 +1,20 @@
-<%= @issue.description %>
+<h1 class="title">
+  Задача # <%= @issue.id %> от <%= l(@issue.created_at) %>
+</h1>
+<h2 class="subtitle is-5">
+  <%= link_to @issue.token, issue_path(id: @issue.token) %>
+</h2>
 
-<%= @issue.inspect %>
+<div class="content">
+  <p>
+    <%= @issue.full_status_name %>
+  </p>
+</div>
+
+<div class="content">
+  <address>
+    Общежитие «<%= @issue.hostel %>», комната <%= @issue.room %>
+  </address>
+
+  <%= @issue.description %>
+</div>

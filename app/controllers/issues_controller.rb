@@ -19,7 +19,9 @@ class IssuesController < ApplicationController
 
   def find; end
 
-  def show; end
+  def show
+    @issue = @issue.decorate
+  end
 
   private
 
