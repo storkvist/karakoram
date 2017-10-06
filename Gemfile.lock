@@ -93,6 +93,8 @@ GEM
       request_store (~> 1.0)
     erubi (1.6.1)
     execjs (2.7.0)
+    factory_girl (4.8.1)
+      activesupport (>= 3.0.0)
     ffi (1.9.18)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -255,6 +257,7 @@ DEPENDENCIES
   devise
   devise-i18n
   draper
+  factory_girl
   i18n-debug
   listen (>= 3.0.5, < 3.2)
   mysql2
