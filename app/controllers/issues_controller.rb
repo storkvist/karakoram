@@ -1,6 +1,6 @@
 class IssuesController < ApplicationController
   before_action :find_by_token, only: :show
-  load_and_authorize_resource
+  load_and_authorize_resource except: :find
 
   def index
     @issues = @issues.where(status: params[:status]) if params[:status]
@@ -16,6 +16,8 @@ class IssuesController < ApplicationController
       render :new
     end
   end
+
+  def find; end
 
   def show; end
 
