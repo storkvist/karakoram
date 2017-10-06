@@ -11,7 +11,7 @@ class IssuesController < ApplicationController
 
   def create
     if @issue.save
-      redirect_to @issue, notice: 'Задача добавлена'
+      redirect_to issue_path(id: @issue.token), notice: 'Задача добавлена'
     else
       render :new
     end

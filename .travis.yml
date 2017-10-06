@@ -3,7 +3,7 @@ env:
     - CC_TEST_REPORTER_ID=76eed05e22f7780b13bf629b671e49fb2a0f79acd82f614e8ef6d6f27cf070cc
 language: ruby
 rvm:
-  - 2.4
+  - 2.4.1
 services:
   - mysql
 before_install:
