@@ -1,0 +1,9 @@
+@media print {
+  .navbar, .hero.add-task {
+    display: none;
+  }
+
+  blockquote {
+    border-left: none !important;
+  }
+}

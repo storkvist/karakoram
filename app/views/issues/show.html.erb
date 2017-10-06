@@ -9,12 +9,12 @@
   <p>
     <%= @issue.full_status_name %>
   </p>
-</div>
 
-<div class="content">
   <address>
     Общежитие «<%= @issue.hostel %>», комната <%= @issue.room %>
   </address>
 
-  <%= @issue.description %>
+  <blockquote>
+    <%= @issue.description %>
+  </blockquote>
 </div>
