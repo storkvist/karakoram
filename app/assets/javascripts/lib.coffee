@@ -5,9 +5,9 @@
   el.style.opacity = 1
   fade = ->
     if (el.style.opacity -= .1) < 0
-      el.style.display = 'none';
+      el.style.display = 'none'
     else
-      requestAnimationFrame(fade);
+      requestAnimationFrame(fade)
   fade()
 
 @fadeIn = (el, display) ->
