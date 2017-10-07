@@ -3,6 +3,7 @@ AllCops:
     - 'bin/**/*'
     - 'config/**/*'
     - 'db/migrate/20171004090643_devise_create_users.rb'
+    - 'db/migrate/20171005102114_rolify_create_roles.rb'
     - 'db/schema.rb'
     - 'spec/spec_helper.rb'
 Style/AsciiComments:
