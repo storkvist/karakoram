@@ -34,6 +34,6 @@ class IssuesController < ApplicationController
   end
 
   def resource_params
-    params.require(:issue).permit(:description, :hostel_id, :room)
+    params.require(:issue).permit(:description, :hostel_id, :phone, :room)
   end
 end

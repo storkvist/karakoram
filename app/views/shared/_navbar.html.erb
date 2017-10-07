@@ -51,7 +51,7 @@
 
     <div class="navbar-end">
       <% if user_signed_in? %>
-        <%= link_to destroy_user_session_path, method: :delete, class: 'navbar-item has-text-danger' do %>
+        <%= link_to destroy_user_session_path, method: :delete, class: 'navbar-item' do %>
           <span class="icon">
             <i class="fa fa-sign-out"></i>
           </span>

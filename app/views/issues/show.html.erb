@@ -10,9 +10,31 @@
     <%= @issue.full_status_name %>
   </p>
 
-  <address>
-    Общежитие «<%= @issue.hostel %>», комната <%= @issue.room %>
-  </address>
+  <% if can?(:manage, Issue) %>
+    <address class="level">
+      <div class="level-left">
+        <div class="level-item">
+          Общежитие «<%= @issue.hostel %>»,
+          комната <%= @issue.room %>
+        </div>
+      </div>
+      <% if @issue.phone.present? %>
+        <div class="level-right">
+          <div class="level-item">
+            <%= link_to @issue.phone, "tel:#{@issue.phone}" %>
+          </div>
+        </div>
+      <% end %>
+    </address>
+  <% else %>
+    <address class="level">
+      <div class="level-left">
+        <div class="level-item">
+          Адрес и телефон скрыты
+        </div>
+      </div>
+    </address>
+  <% end %>
 
   <blockquote>
     <%= @issue.description %>

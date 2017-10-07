@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005124345) do
+ActiveRecord::Schema.define(version: 20171007140834) do
 
   create_table "hostels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20171005124345) do
     t.string "room", null: false
     t.string "token"
     t.integer "status", default: 1, null: false
+    t.string "phone"
     t.index ["hostel_id"], name: "index_issues_on_hostel_id"
   end
 

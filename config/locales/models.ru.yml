@@ -10,6 +10,7 @@ ru:
       issue:
         description: 'Описание'
         hostel: 'Общежитие'
+        phone: 'Телефон'
         room: 'Комната'
       user:
         email: 'Электронная почта'
