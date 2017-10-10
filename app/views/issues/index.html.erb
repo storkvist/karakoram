@@ -21,6 +21,7 @@
       <th>
         Задача
       </th>
+      <td></td>
     </tr>
   </thead>
   <tbody>
@@ -43,6 +44,13 @@
         </td>
         <td>
           <%= link_to issue.description, issue, class: 'has-text-black' %>
+        </td>
+        <td>
+          <%= link_to issue do %>
+            <span class="icon is-medium">
+              <i class="fa fa-lg fa-pencil-square-o"></i>
+            </span>
+          <% end %>
         </td>
       </tr>
     <% end %>
