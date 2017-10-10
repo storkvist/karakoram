@@ -4,6 +4,8 @@ class CommentsController < ApplicationController
 
   def create
     if @comment.save
+      @issue.update_attribute(:status, :reviewed) if @issue.accepted?
+
       redirect_to @comment.issue, notice: 'Комментарий добавлен'
     else
       redirect_to :back
