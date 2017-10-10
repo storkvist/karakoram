@@ -1,6 +1,6 @@
 class IssuesController < ApplicationController
   before_action :find_by_token, only: :show
-  load_and_authorize_resource except: %i[find stats]
+  load_and_authorize_resource except: %i[find]
 
   def index
     @issues = @issues.where(status: params[:status]) if params[:status]
@@ -24,10 +24,15 @@ class IssuesController < ApplicationController
   end
 
   def stats
-    @accepted_count = Issue.accepted.count
-    @reviewed_count = Issue.reviewed.count
-    @in_work_count = Issue.in_work.count
-    @closed_count = Issue.closed.count
+    # issuesByStatus
+    @accepted_count = @issues.accepted.count
+    @reviewed_count = @issues.reviewed.count
+    @in_work_count = @issues.in_work.count
+    @closed_count = @issues.closed.count
+
+    # notClosedIssuesByDate
+    @not_closed_issues = @issues.where(status: [:accepted, :reviewed, :in_work])
+    @issuesByHostel = @not_closed_issues.group_by(&:hostel)
   end
 
   private

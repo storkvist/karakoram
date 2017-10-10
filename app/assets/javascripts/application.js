@@ -12,5 +12,5 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require chart.js/dist/Chart.js
+//= require chart.js/dist/Chart
 //= require_tree .

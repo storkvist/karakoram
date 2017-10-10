@@ -1,8 +1,14 @@
-<canvas id="issuesByStatus"></canvas>
+<div class="tile is-ancestor is-parent">
+  <div class="tile is-child">
+    <canvas id="issuesByStatus"></canvas>
+  </div>
+  <div class="tile is-child">
+  </div>
+</div>
 
 <script>
   var ctx = document.getElementById('issuesByStatus').getContext('2d');
-  var myChart = new Chart(ctx, {
+  var issuesByStatusChart = new Chart(ctx, {
     type: 'pie',
     data: {
       labels: ['Новые', 'Принятые', 'В работе', 'Выполнены'],
