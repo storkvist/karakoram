@@ -1,4 +1,4 @@
-class Hostel < ApplicationRecord
+class Building < ApplicationRecord
   has_many :issues
 
   default_scope { order(:name) }

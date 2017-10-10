@@ -1,5 +1,5 @@
 <%= simple_form_for(@issue) do |f| %>
-  <%= f.association :hostel, prompt: :translate, wrapper: :select %>
+  <%= f.association :building, prompt: :translate, wrapper: :select %>
   <%= f.input :room %>
   <%= f.input :phone %>
   <%= f.input :description %>

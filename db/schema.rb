@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010131551) do
+ActiveRecord::Schema.define(version: 20171010174536) do
 
-  create_table "hostels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "buildings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -22,12 +22,12 @@ ActiveRecord::Schema.define(version: 20171010131551) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "hostel_id", null: false
+    t.bigint "building_id", null: false
     t.string "room", null: false
     t.string "token"
     t.integer "status", default: 1, null: false
     t.string "phone"
-    t.index ["hostel_id"], name: "index_issues_on_hostel_id"
+    t.index ["building_id"], name: "index_issues_on_building_id"
   end
 
   create_table "roles", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -73,5 +73,5 @@ ActiveRecord::Schema.define(version: 20171010131551) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
-  add_foreign_key "issues", "hostels"
+  add_foreign_key "issues", "buildings"
 end

@@ -5,10 +5,10 @@ class Issue < ApplicationRecord
   resourcify
 
   validates_presence_of :description
-  validates_presence_of :hostel
+  validates_presence_of :building
   validates_presence_of :room
 
-  belongs_to :hostel
+  belongs_to :building
 
   default_scope { order(created_at: :asc) }
 end

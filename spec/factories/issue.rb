@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :issue do
-    hostel
+    building
     room 99
     description 'Нет электричества.'
   end

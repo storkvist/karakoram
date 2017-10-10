@@ -9,7 +9,7 @@ ru:
     attributes:
       issue:
         description: 'Описание'
-        hostel: 'Общежитие'
+        building: 'Общежитие'
         phone: 'Телефон'
         room: 'Комната'
       user:

@@ -32,7 +32,7 @@ class IssuesController < ApplicationController
 
     # notClosedIssuesByDate
     @not_closed_issues = @issues.where(status: [:accepted, :reviewed, :in_work])
-    @issuesByHostel = @not_closed_issues.group_by(&:hostel)
+    @issuesByBuilding = @not_closed_issues.group_by(&:building)
   end
 
   private
@@ -46,6 +46,6 @@ class IssuesController < ApplicationController
   end
 
   def resource_params
-    params.require(:issue).permit(:description, :hostel_id, :phone, :room)
+    params.require(:issue).permit(:description, :building_id, :phone, :room)
   end
 end

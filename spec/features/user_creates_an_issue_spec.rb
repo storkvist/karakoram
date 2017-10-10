@@ -7,7 +7,7 @@ RSpec.feature 'Пользователь создаёт задачу', type: :fea
 
     visit new_issue_path
 
-    select issue.hostel, from: I18n.t('activerecord.attributes.issue.hostel')
+    select issue.building, from: I18n.t('activerecord.attributes.issue.building')
     fill_in I18n.t('activerecord.attributes.issue.room'),
             with: issue.room
     fill_in I18n.t('activerecord.attributes.issue.description'),
