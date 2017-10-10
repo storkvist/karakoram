@@ -12,7 +12,7 @@ class IssueDecorator < Draper::Decorator
                   name: 'Принята',
                   description: 'задача зарегистрирована, её посмотрели '\
                                'и рассматривают' },
-      in_work: { color: 'warning',
+      in_work: { color: 'success',
                  name: 'В работе',
                  description: 'по задаче выполняет работа' },
       closed: { color: nil,

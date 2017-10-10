@@ -1,0 +1,27 @@
+<canvas id="issuesByStatus"></canvas>
+
+<script>
+  var ctx = document.getElementById('issuesByStatus').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Новые', 'Принятые', 'В работе', 'Выполнены'],
+      datasets: [{
+        data: [<%= @accepted_count %>,
+               <%= @reviewed_count %>,
+               <%= @in_work_count %>,
+               <%= @closed_count %>],
+        backgroundColor: ['hsl(348, 100%, 61%)',
+	                        'hsl(48, 100%, 67%)',
+	                        'hsl(141, 71%, 48%)',
+                          'hsl(0, 0%, 71%)']
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Количество заданий с разными статусами'
+      }
+    }
+  });
+</script>
