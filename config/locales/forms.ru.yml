@@ -1,6 +1,8 @@
 ru:
   helpers:
     submit:
+      comment:
+        create: 'Добавить комментарий'
       issue:
         create: 'Добавить задачу'
         created_notification: 'Задача добавлена'

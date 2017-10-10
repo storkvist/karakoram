@@ -9,6 +9,7 @@ class Issue < ApplicationRecord
   validates_presence_of :room
 
   belongs_to :building
+  has_many :comments
 
   default_scope { order(created_at: :asc) }
 end

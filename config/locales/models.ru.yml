@@ -1,12 +1,19 @@
 ru:
   activerecord:
     models:
+      comment:
+        one: 'комментарий'
+        few: 'комментария'
+        many: 'комментариев'
+        other: 'комментария'
       issue:
         one: 'задача'
         few: 'задачи'
         many: 'задач'
         other: 'задачи'
     attributes:
+      comment:
+        text: 'Текст комментария'
       issue:
         description: 'Описание'
         building: 'Общежитие'

@@ -1,0 +1,25 @@
+<% @issue.comments.each do |comment| %>
+  <article class="message <%= 'is-danger' unless comment.public? %>">
+    <div class="message-header">
+      <p><%= comment.user.email %>, <%= l(comment.created_at) %></p>
+    </div>
+    <div class="message-body">
+      <%= comment.text %>
+    </div>
+  </article>
+<% end %>
+
+<%= simple_form_for [@issue, @issue.comments.build] do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.input :text %>
+  <%= f.input :public, as: :boolean, wrapper: :checkbox,
+                       label: '&nbsp;Комментарий виден всем'.html_safe %>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= f.button :submit %>
+    </div>
+    <div class="control">
+    </div>
+  </div>
+<% end %>
