@@ -1,8 +1,13 @@
 <div class="tile is-ancestor is-parent">
   <div class="tile is-child">
+    <h3 class="title is-5">Количество задач в разных статусах</h3>
+
     <canvas id="issuesByStatus"></canvas>
   </div>
   <div class="tile is-child">
+    <h3 class="title is-5">Количество невыполненных задач по общежитиям</h3>
+
+    <canvas id="issuesByBuilding"></canvas>
   </div>
 </div>
 
@@ -20,14 +25,29 @@
         backgroundColor: ['hsl(348, 100%, 61%)',
 	                        'hsl(48, 100%, 67%)',
 	                        'hsl(141, 71%, 48%)',
+                          'hsl(204, 86%, 53%)',
+                          'hsl(217, 71%, 53%)',
+                          'hsl(171, 100%, 41%)',
                           'hsl(0, 0%, 71%)']
       }]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Количество заданий с разными статусами'
-      }
+    }
+  });
+
+  var ctx = document.getElementById('issuesByBuilding').getContext('2d');
+  var issuesByStatusChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: <%= @issues_by_building.keys.map(&:name).to_json.html_safe %>,
+      datasets: [{
+        data: <%= @issues_by_building.values.map(&:count).to_json %>,
+        backgroundColor: ['hsl(348, 100%, 61%)',
+	                        'hsl(48, 100%, 67%)',
+	                        'hsl(141, 71%, 48%)',
+                          'hsl(204, 86%, 53%)',
+                          'hsl(217, 71%, 53%)',
+                          'hsl(171, 100%, 41%)',
+                          'hsl(0, 0%, 71%)']
+      }]
     }
   });
 </script>
