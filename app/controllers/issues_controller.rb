@@ -23,6 +23,16 @@ class IssuesController < ApplicationController
     @issue = @issue.decorate
   end
 
+  def edit; end
+
+  def update
+    if @issue.update_attributes(resource_params)
+      redirect_to issue_path(id: @issue.token), notice: 'Задача изменена'
+    else
+      render :edit
+    end
+  end
+
   def stats
     # issuesByStatus
     @accepted_count = @issues.accepted.count
@@ -46,6 +56,7 @@ class IssuesController < ApplicationController
   end
 
   def resource_params
-    params.require(:issue).permit(:description, :building_id, :phone, :room)
+    params.require(:issue).permit(:description, :building_id, :phone, :room,
+                                  tag_ids: [])
   end
 end

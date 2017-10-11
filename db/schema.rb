@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010180001) do
+ActiveRecord::Schema.define(version: 20171011103406) do
 
   create_table "buildings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20171010180001) do
     t.boolean "public", default: true
     t.index ["issue_id"], name: "index_comments_on_issue_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "features", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "issue_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_features_on_issue_id"
+    t.index ["tag_id"], name: "index_features_on_tag_id"
   end
 
   create_table "issues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -49,6 +58,12 @@ ActiveRecord::Schema.define(version: 20171010180001) do
     t.datetime "updated_at"
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["name"], name: "index_roles_on_name"
+  end
+
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -86,5 +101,7 @@ ActiveRecord::Schema.define(version: 20171010180001) do
 
   add_foreign_key "comments", "issues"
   add_foreign_key "comments", "users"
+  add_foreign_key "features", "issues"
+  add_foreign_key "features", "tags"
   add_foreign_key "issues", "buildings"
 end

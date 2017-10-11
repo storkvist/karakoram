@@ -22,6 +22,7 @@
         Задача
       </th>
       <td></td>
+      <td></td>
     </tr>
   </thead>
   <tbody>
@@ -43,12 +44,22 @@
           <%= issue.room %>
         </td>
         <td>
-          <%= link_to issue.description, issue, class: 'has-text-black' %>
+          <%= link_to issue.description, issue,
+                      class: 'has-text-black', title: 'Просмотреть задачу' %>
         </td>
         <td>
-          <%= link_to issue do %>
+          <%= link_to issue, title: 'Просмотреть задачу' do %>
             <span class="icon is-medium">
               <i class="fa fa-lg fa-pencil-square-o"></i>
+            </span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_issue_path(issue),
+                      title: 'Редактировать текст задачи',
+                      data: { confirm: 'Вы уверены? Может лучше оставить комментарий к задаче?' } do %>
+            <span class="icon is-medium">
+              <i class="fa fa-lg fa-wrench"></i>
             </span>
           <% end %>
         </td>

@@ -1,0 +1,16 @@
+form .check_boxes {
+  margin-bottom: 0.75rem;
+
+  .control {
+    column-count: 3;
+  }
+
+  label.checkbox {
+    display: block;
+    line-height: 1.25;
+
+    input {
+      margin-right: 5px;
+    }
+  }
+}

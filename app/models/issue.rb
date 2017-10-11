@@ -10,6 +10,9 @@ class Issue < ApplicationRecord
 
   belongs_to :building
   has_many :comments
+  has_many :features
+  has_many :tags, through: :features
+  accepts_nested_attributes_for :tags
 
   default_scope { order(created_at: :asc) }
 end

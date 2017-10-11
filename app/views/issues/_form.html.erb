@@ -2,6 +2,9 @@
   <%= f.association :building, prompt: :translate, wrapper: :select %>
   <%= f.input :room %>
   <%= f.input :phone %>
+  <div class="check_boxes">
+    <%= f.association :tags, as: :check_boxes, class: 'xxx' %>
+  </div>
   <%= f.input :description %>
 
   <div class="field is-grouped">

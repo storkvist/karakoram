@@ -6,3 +6,4 @@ ru:
       issue:
         create: 'Добавить задачу'
         created_notification: 'Задача добавлена'
+        update: 'Сохранить задачу'

@@ -19,6 +19,7 @@ ru:
         building: 'Общежитие'
         phone: 'Телефон'
         room: 'Комната'
+        tags: 'Категории'
       user:
         email: 'Электронная почта'
         password: 'Пароль'
