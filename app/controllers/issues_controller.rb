@@ -41,8 +41,8 @@ class IssuesController < ApplicationController
     @closed_count = @issues.closed.count
 
     # notClosedIssuesByDate
-    @not_closed_issues = @issues.where(status: [:accepted, :reviewed, :in_work])
-    @issuesByBuilding = @not_closed_issues.group_by(&:building)
+    @not_closed_issues = @issues.where(status: %i[accepted reviewed in_work])
+    @issues_by_building = @not_closed_issues.group_by(&:building)
   end
 
   private
