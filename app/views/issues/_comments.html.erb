@@ -9,17 +9,19 @@
   </article>
 <% end %>
 
-<%= simple_form_for [@issue, @issue.comments.build] do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.input :text %>
-  <%= f.input :public, as: :boolean, wrapper: :checkbox,
-                       label: '&nbsp;Комментарий виден всем'.html_safe %>
+<% if can?(:manage, Issue) %>
+  <%= simple_form_for [@issue, @issue.comments.build] do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.input :text %>
+    <%= f.input :public, as: :boolean, wrapper: :checkbox,
+                         label: '&nbsp;Комментарий виден всем'.html_safe %>
 
-  <div class="field is-grouped">
-    <div class="control">
-      <%= f.button :submit %>
+    <div class="field is-grouped">
+      <div class="control">
+        <%= f.button :submit %>
+      </div>
+      <div class="control">
+      </div>
     </div>
-    <div class="control">
-    </div>
-  </div>
+  <% end %>
 <% end %>
