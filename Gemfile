@@ -7,6 +7,7 @@ end
 
 gem 'cancancan'
 gem 'coffee-rails', '~> 4.2'
+gem 'daemons', require: false
 gem 'devise'
 gem 'devise-i18n'
 gem 'draper'
