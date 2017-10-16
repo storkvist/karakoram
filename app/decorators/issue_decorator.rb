@@ -10,7 +10,7 @@ class IssueDecorator < Draper::Decorator
                                'не делали' },
       reviewed: { color: 'warning',
                   name: 'Принята',
-                  description: 'задача зарегистрирована, её посмотрели '\
+                  description: 'задача зарегистрирована, её увидели '\
                                'и рассматривают' },
       in_work: { color: 'success',
                  name: 'В работе',

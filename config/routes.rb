@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  telegram_webhooks TelegramWebhooksController
+
   root to: 'static#home'
 end
