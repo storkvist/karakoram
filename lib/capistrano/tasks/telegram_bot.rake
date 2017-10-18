@@ -25,5 +25,5 @@ namespace :telegram do
   end
 end
 
-after 'deploy:finished', 'telegram:bot:set_webhook'
+# after 'deploy:finished', 'telegram:bot:set_webhook'
 after 'deploy:finished', 'telegram:bot:poller:restart'
