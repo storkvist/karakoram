@@ -91,5 +91,5 @@ Rails.application.configure do
 
   config.telegram_updates_controller.session_store = :redis_store, { expires_in: 1.month }
 
-  config.routes.default_url_options = { host: '213.171.63.116', protocol: 'https' }
+  config.application.routes.default_url_options = { host: '213.171.63.116', protocol: 'https' }
 end
