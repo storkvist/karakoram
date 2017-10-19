@@ -1,5 +1,5 @@
 <% @issue.comments.each do |comment| %>
-  <article class="message <%= 'is-danger' unless comment.public? %>">
+  <article class="message <%= comment.public? ? 'is-light' : 'is-danger' %>">
     <div class="message-header">
       <p><%= comment.user.email %>, <%= l(comment.created_at) %></p>
     </div>

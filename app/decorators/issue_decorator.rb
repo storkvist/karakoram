@@ -17,7 +17,10 @@ class IssueDecorator < Draper::Decorator
                  description: 'по задаче выполняет работа' },
       closed: { color: nil,
                 name: 'Выполнена',
-                description: 'задача выполнена' }
+                description: 'задача выполнена' },
+      rejected: { color: 'info',
+                  name: 'Отклонена',
+                  description: 'задача не будет выполнена' }
     }
   end
   # rubocop:enable Metrics/MethodLength

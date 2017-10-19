@@ -20,6 +20,12 @@ ru:
         phone: 'Телефон'
         room: 'Комната'
         tags: 'Категории'
+        status:
+          accepted: 'Новая'
+          reviewed: 'Принята'
+          in_work: 'В работе'
+          closed: 'Выполнена'
+          rejected: 'Отклонена'
       user:
         email: 'Электронная почта'
         password: 'Пароль'

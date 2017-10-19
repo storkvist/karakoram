@@ -4,6 +4,7 @@ module IssuesHelper
       { name: 'Новые', params: { status: %w[accepted reviewed] } },
       { name: 'В работе', params: { status: 'in_work' } },
       { name: 'Закрытые', params: { status: 'closed' } },
+      { name: 'Отклонённые', params: { status: 'rejected' } },
       { name: 'Все', params: nil }
     ]
 

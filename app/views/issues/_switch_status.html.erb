@@ -1,0 +1,17 @@
+<% if can?(:manage, Issue) %>
+  <div class="tabs is-toggle is-fullwidth is-large switch-status">
+    <ul>
+      <% Issue.statuses.each do |name, _| %>
+        <li class="<%= 'is-active' if name == @issue.status %>">
+          <a data-status="<%= name %>" data-confirm="Вы уверены?">
+            <span><%= t("activerecord.attributes.issue.status.#{name}") %></span>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+
+    <%= simple_form_for @issue do |f| %>
+      <%= f.hidden_field :status %>
+    <% end %>
+  </div>
+<% end %>
