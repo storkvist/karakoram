@@ -7,6 +7,10 @@ Rails.application.routes.draw do
       get 'stats'
     end
 
+    member do
+      get 'history'
+    end
+
     resources :comments
   end
 

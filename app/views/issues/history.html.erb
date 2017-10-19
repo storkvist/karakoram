@@ -1,0 +1,27 @@
+<h1 class="title">
+  История действий по задаче # <%= @issue.id %> от <%= l(@issue.created_at) %>
+</h1>
+<h2 class="subtitle is-5">
+  <%= link_to @issue.token, issue_path(id: @issue.token) %>
+</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Пользователь</th>
+      <th>Время</th>
+      <th>Действие</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @issue.versions.reverse.each do |version| %>
+      <tr>
+        <td><%= User.find(version.whodunnit).email if version.whodunnit %></td>
+        <td><%= version.created_at %></td>
+        <td><%= version.event %></td>
+        <td><%= version.changeset.inspect %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

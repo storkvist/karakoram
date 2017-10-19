@@ -45,6 +45,8 @@ class IssuesController < ApplicationController
     @issues_by_building = @not_closed_issues.group_by(&:building)
   end
 
+  def history; end
+
   private
 
   def find_by_token
