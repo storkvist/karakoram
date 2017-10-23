@@ -6,11 +6,21 @@ class Ability
 
     if user.has_role?(:admin)
       can :manage, :all
-    else
-      can :create, Issue
-      can :show, Issue
-      can :stats, Issue
+
+    elsif user.has_role?(:supervisor)
+      can %i[index update comment], Issue
+      %w[accepted reviewed rejected].each { |status| can "make_#{status}".to_sym, Issue }
+
+    elsif user.has_role?(:hostel_supervisor, :any)
+      can %i[index update comment], Issue,
+          building_id: Building.with_role(:hostel_supervisor, user).map(&:id),
+          status: %w[reviewed in_work closed rejected].map { |s| Issue.statuses[s] }
+      %w[reviewed in_work closed rejected].each { |status| can "make_#{status}".to_sym, Issue }
     end
+
+    can :create, Issue
+    can :show, Issue
+    can :stats, Issue
 
     # Define abilities for the passed in user here. For example:
     #

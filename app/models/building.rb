@@ -1,7 +1,7 @@
 class Building < ApplicationRecord
-  has_many :issues
-
   default_scope { order(:name) }
+  has_many :issues
+  resourcify
 
   def to_s
     name
