@@ -33,7 +33,9 @@ class IssuesController < ApplicationController
   def find; end
 
   def show
-    raise ActiveRecord::RecordNotFound unless can?(:update, @issue)
+    unless @found_by_token
+      raise ActiveRecord::RecordNotFound unless can?(:update, @issue)
+    end
 
     @issue = @issue.decorate
   end
@@ -66,7 +68,11 @@ class IssuesController < ApplicationController
 
   def find_by_token
     @issue = Issue.find_by_token(params[:id])
-    return unless @issue.blank?
+    unless @issue.blank?
+      @found_by_token = true
+      return
+    end
+    # return unless @issue.blank?
 
     raise ActiveRecord::RecordNotFound unless can?(:update, Issue)
     @issue = Issue.find(params[:id])
