@@ -10,12 +10,14 @@ class Ability
     elsif user.has_role?(:supervisor)
       can %i[index update comment], Issue
       %w[accepted reviewed rejected].each { |status| can "make_#{status}".to_sym, Issue }
+      can :create, Comment
 
     elsif user.has_role?(:hostel_supervisor, :any)
       can %i[index update comment], Issue,
           building_id: Building.with_role(:hostel_supervisor, user).map(&:id),
           status: %w[reviewed in_work closed rejected].map { |s| Issue.statuses[s] }
       %w[reviewed in_work closed rejected].each { |status| can "make_#{status}".to_sym, Issue }
+      can :create, Comment
     end
 
     can :create, Issue
