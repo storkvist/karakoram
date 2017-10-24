@@ -11,6 +11,12 @@ class IssuesController < ApplicationController
       @issues = @issues.joins(:features).where(features: { tag_id: params[:tag_id] })
     end
 
+    if params[:search]
+      keywords = params[:search].split
+      query = (1..keywords.size).map { "description LIKE ?" }.join(' OR ')
+      @issues = @issues.where(query, keywords.map { |k| "%#{k}%" })
+    end
+
     @issues = IssuesDecorator.decorate(@issues)
   end
 

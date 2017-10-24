@@ -13,7 +13,8 @@
 <div class="level filters">
   <div class="level-left">
     <div class="level-item">
-      <a class="button is-light" href="<%= issues_path(params.permit(status: [])) %>">
+      <a class="button <%= %w[building_id tag_id search].inject(false) { |r, f| r || params[f].present? } ? 'is-danger' : 'is-light' %>" 
+         href="<%= issues_path(params.permit(status: [])) %>">
         <span class="icon">
           <i class="fa fa-times"></i>
         </span>
@@ -60,6 +61,19 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="level-item" style="width: 100%;">
+      <form class="search" style="width: 100%;">
+        <div class="field">
+          <div class="control">
+            <input name="query" id="query" class="input" type="text"
+                   placeholder="Поиск по описанию и комментариям"
+                   data-path="<%= issues_path(params.except(:controller, :action).permit!) %>"
+                   value="<%= params[:search] %>">
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>
