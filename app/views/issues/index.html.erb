@@ -55,12 +55,14 @@
           <% end %>
         </td>
         <td>
-          <%= link_to edit_issue_path(issue),
-                      title: 'Редактировать текст задачи',
-                      data: { confirm: 'Вы уверены? Может лучше оставить комментарий к задаче?' } do %>
-            <span class="icon is-medium">
-              <i class="fa fa-lg fa-wrench"></i>
-            </span>
+          <% if can?(:manage, Issue) %>
+            <%= link_to edit_issue_path(issue),
+                        title: 'Редактировать текст задачи',
+                        data: { confirm: 'Вы уверены? Может лучше оставить комментарий к задаче?' } do %>
+              <span class="icon is-medium">
+                <i class="fa fa-lg fa-wrench"></i>
+              </span>
+            <% end %>
           <% end %>
         </td>
       </tr>
