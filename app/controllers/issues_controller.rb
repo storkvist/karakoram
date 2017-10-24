@@ -3,7 +3,9 @@ class IssuesController < ApplicationController
   load_and_authorize_resource except: %i[find]
 
   def index
-    @issues = @issues.where(status: params[:status]) if params[:status]
+    %i[status building_id].each do |filter|
+      @issues = @issues.where(filter => params[filter]) if params[filter]
+    end
     @issues = IssuesDecorator.decorate(@issues)
   end
 

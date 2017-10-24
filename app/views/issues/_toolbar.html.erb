@@ -9,3 +9,26 @@
 
   <%= switch_status_of_issues(params[:status]) %>
 </div>
+
+<div class="level filters">
+  <div class="level-left">
+    <div class="field">
+      <div class="control">
+        <div class="select">
+          <select class="select">
+            <option data-path="<%= issues_path(params.except(:controller, :action, :building_id).permit!) %>">
+              Все общежития
+            </option>
+
+            <% Building.all.each do |hostel| %>
+              <option <%= 'selected' if hostel.id.to_s == params[:building_id] %>
+                data-path="<%= issues_path(params.except(:controller, :action).permit!.merge(building_id: hostel.id)) %>">
+                <%= hostel.name %>
+              </option>
+            <% end %>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
