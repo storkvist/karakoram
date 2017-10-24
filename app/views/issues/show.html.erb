@@ -28,7 +28,11 @@
     </address>
   <% end %>
 
-  <blockquote>
+  <% if @issue.tags.any? %>
+    <p>Типы работы: <%= @issue.tags.map(&:name).map(&:downcase).to_sentence %></p>
+  <% end %>
+
+  <blockquote class="is-size-4">
     <%= @issue.description %>
   </blockquote>
 </div>

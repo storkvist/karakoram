@@ -12,21 +12,52 @@
 
 <div class="level filters">
   <div class="level-left">
-    <div class="field">
-      <div class="control">
-        <div class="select">
-          <select class="select">
-            <option data-path="<%= issues_path(params.except(:controller, :action, :building_id).permit!) %>">
-              Все общежития
-            </option>
+    <div class="level-item">
+      <a class="button is-light" href="<%= issues_path(params.permit(status: [])) %>">
+        <span class="icon">
+          <i class="fa fa-times"></i>
+        </span>
+      </a>
+    </div>
 
-            <% Building.all.each do |hostel| %>
-              <option <%= 'selected' if hostel.id.to_s == params[:building_id] %>
-                data-path="<%= issues_path(params.except(:controller, :action).permit!.merge(building_id: hostel.id)) %>">
-                <%= hostel.name %>
+    <div class="level-item">
+      <div class="field">
+        <div class="control">
+          <div class="select">
+            <select class="select">
+              <option data-path="<%= issues_path(params.except(:controller, :action, :building_id).permit!) %>">
+                Все общежития
               </option>
-            <% end %>
-          </select>
+
+              <% Building.all.each do |hostel| %>
+                <option <%= 'selected' if hostel.id.to_s == params[:building_id] %>
+                  data-path="<%= issues_path(params.except(:controller, :action).permit!.merge(building_id: hostel.id)) %>">
+                  <%= hostel.name %>
+                </option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="level-item">
+      <div class="field">
+        <div class="control">
+          <div class="select">
+            <select class="select">
+              <option data-path="<%= issues_path(params.except(:controller, :action, :tag_id).permit!) %>">
+                Все типы задач
+              </option>
+
+              <% Tag.all.each do |tag| %>
+                <option <%= 'selected' if tag.id.to_s == params[:tag_id] %>
+                  data-path="<%= issues_path(params.except(:controller, :action).permit!.merge(tag_id: tag.id)) %>">
+                  <%= tag.name %>
+                </option>
+              <% end %>
+            </select>
+          </div>
         </div>
       </div>
     </div>

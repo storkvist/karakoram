@@ -6,6 +6,11 @@ class IssuesController < ApplicationController
     %i[status building_id].each do |filter|
       @issues = @issues.where(filter => params[filter]) if params[filter]
     end
+
+    if params[:tag_id]
+      @issues = @issues.joins(:features).where(features: { tag_id: params[:tag_id] })
+    end
+
     @issues = IssuesDecorator.decorate(@issues)
   end
 
