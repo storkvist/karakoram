@@ -33,16 +33,16 @@ class TelegramWebhooksController < Telegram::Bot::UpdatesController
     end
   end
 
-  def new_issue(issue_description = nil, *)
+  def new_issue(*args)
     if session[:hostel_id].blank?
       respond_with :message, text: ('Сначала нужно выбрать своё общежитие.' + info)
     elsif session[:room_number].blank?
       respond_with :message, text: ('Сначала нужно указать свою комнату.' + info)
     else
-      if issue_description
+      if args.any?
         issue = Issue.create(building_id: session[:hostel_id],
                              room: session[:room_number],
-                            description: issue_description)
+                            description: args.join(' '))
         respond_with :message, text: ('Ваша задача добавлена.' + info)
       else
         res = ['Укажите текст задачи в ответном сообщении.']
